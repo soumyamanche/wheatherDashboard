@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Weather & Air Quality</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>🌤️ Weather & Air Quality</h1>
+      <form id="searchForm" aria-label="City search">
+        <div class="search-container">
+          <input
+            id="cityInput"
+            type="text"
+            placeholder="Enter city (e.g., Hyderabad)"
+            autocomplete="off"
+          />
+          <!-- Suggestions dropdown -->
+          <div id="suggestions" class="suggestions"></div>
+        </div>
+        <button type="submit" class="btn">Search</button>
+      </form>
+    </header>
+
+    <main class="container">
+      <section class="cards">
+        <article class="card" aria-live="polite">
+          <h2 class="card-title">Weather</h2>
+          <div class="row">
+            <div class="stat">
+              <div class="stat-value" id="temp">--°C</div>
+              <div class="stat-label">Temperature</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="humidity">--%</div>
+              <div class="stat-label">Humidity</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="wind">-- m/s</div>
+              <div class="stat-label">Wind</div>
+            </div>
+          </div>
+          <div class="weather-meta">
+            <img id="icon" alt="" />
+            <div id="desc">—</div>
+          </div>
+          <div class="meta-line" id="locationMeta">—</div>
+        </article>
+
+        <article class="card aqi-card" aria-live="polite">
+          <h2 class="card-title">Air Quality</h2>
+          <div class="aqi-badge" id="aqiBadge">AQI —</div>
+          <div class="row">
+            <div class="pill">
+              <span>PM2.5</span><strong id="pm25">—</strong>
+            </div>
+            <div class="pill">
+              <span>PM10</span><strong id="pm10">—</strong>
+            </div>
+            <div class="pill"><span>NO₂</span><strong id="no2">—</strong></div>
+            <div class="pill"><span>O₃</span><strong id="o3">—</strong></div>
+            <div class="pill"><span>CO</span><strong id="co">—</strong></div>
+          </div>
+          <p class="advice" id="advice">Health tip will appear here.</p>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">Share</h2>
+        <a id="waShare" class="btn outline" target="_blank" rel="noopener"
+          >Share on WhatsApp</a
+        >
+      </section>
+
+      <section
+        class="card subtle"
+        id="statusArea"
+        role="status"
+        aria-live="polite"
+      >
+        <div id="status">Ready.</div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>
+        Data from OpenWeather (Weather + Air Pollution). This is a demo project.
+      </small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
